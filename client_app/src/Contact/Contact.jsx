@@ -32,17 +32,17 @@ function Contact(props) {
                                 </p>
                                 <div className="single-contact-block">
                                     <h4><i className="fa fa-fax"></i> Address</h4>
-                                    <p>155 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh</p>
+                                    <p>Hust</p>
                                 </div>
                                 <div className="single-contact-block">
                                     <h4><i className="fa fa-phone"></i> Phone</h4>
-                                    <p>Mobile: 0763557366</p>
-                                    <p>Hotline: 1900100 Biết</p>
+                                    <p>Mobile: 012345678</p>
+                                    <p>Hotline: className Biết</p>
                                 </div>
                                 <div className="single-contact-block last-child">
                                     <h4><i className="fa fa-envelope-o"></i> Email</h4>
-                                    <p>tienkim9920@gmail.com</p>
-                                    <p>hahadaubo@gmail.com</p>
+                                    <p>hust</p>
+                                    <p>hust</p>
                                 </div>
                             </div>
                         </div>
