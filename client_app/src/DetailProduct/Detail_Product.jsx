@@ -64,27 +64,28 @@ function Detail_Product(props) {
     const handler_addcart = (e) => {
 
         e.preventDefault()
+        window.open(product?.link)
 
-        const data = {
-            id_cart: Math.random().toString(),
-            id_product: id,
-            name_product: product.name_product,
-            price_product: sale ? parseInt(sale.id_product.price_product) - ((parseInt(sale.id_product.price_product) * parseInt(sale.promotion)) / 100) : product.price_product,
-            count: count,
-            image: product.image,
-            size: size,
-        }
+        // const data = {
+        //     id_cart: Math.random().toString(),
+        //     id_product: id,
+        //     name_product: product.name_product,
+        //     price_product: sale ? parseInt(sale.id_product.price_product) - ((parseInt(sale.id_product.price_product) * parseInt(sale.promotion)) / 100) : product.price_product,
+        //     count: count,
+        //     image: product.image,
+        //     size: size,
+        // }
 
-        CartsLocal.addProduct(data)
+        // CartsLocal.addProduct(data)
 
-        const action_count_change = changeCount(count_change)
-        dispatch(action_count_change)
+        // const action_count_change = changeCount(count_change)
+        // dispatch(action_count_change)
 
-        set_show_success(true)
+        // set_show_success(true)
 
-        setTimeout(() => {
-            set_show_success(false)
-        }, 1000)
+        // setTimeout(() => {
+        //     set_show_success(false)
+        // }, 1000)
 
     }
 
@@ -280,7 +281,7 @@ function Detail_Product(props) {
                                                     <div className="inc qtybutton" onClick={upCount}><i className="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
-                                            <a href="#" className="add-to-cart" type="submit" onClick={handler_addcart}>Add to cart</a>
+                                            <a target="_blank" href="#" className="add-to-cart" type="submit" onClick={handler_addcart}>Mua sản phẩm</a>
                                         </form>
                                     </div>
                                 </div>

@@ -249,28 +249,21 @@ function Header(props) {
                                                     data-target="#collapseExample"
                                                     aria-expanded="false"
                                                     aria-controls="collapseExample">{user.fullname}</span>) : (
-                                                <span
-                                                    data-toggle="collapse"
-                                                    data-target="#collapseExample"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseExample">Setting</span>
+                                                <>
+                                                     <span style={{marginLeft: 10}}><Link to="/signin">Sign In</Link></span>
+                                                     <span style={{marginLeft: 10}}><Link to="/signup">Register</Link></span>
+                                                </>
                                             )
                                         }
                                     </div>
                                     <div className="ul_setting">
-                                        {active_user ? (
+                                        {active_user && (
                                             <ul className="setting_ul collapse" id="collapseExample">
                                                 <li className="li_setting"><Link to={`/profile/${sessionStorage.getItem("id_user")}`}>Profile</Link></li>
                                                 <li className="li_setting"><Link to="/history">Order Status</Link></li>
                                                 <li className="li_setting"><a onClick={handler_logout} href="#">Log Out</a></li>
                                             </ul>
-                                        ) : (
-                                            <ul className="setting_ul collapse" id="collapseExample">
-                                                <li className="li_setting"><Link to="/signin">Sign In</Link></li>
-                                                <li className="li_setting"><Link to="/signup">Register</Link></li>
-                                            </ul>
                                         )}
-
                                     </div>
                                 </li>
                             </ul>
@@ -311,7 +304,7 @@ function Header(props) {
                                     </div>
                                 }
                             </form>
-                            <div className="header-middle-right">
+                            {/* <div className="header-middle-right">
                                 <ul className="hm-menu">
                                     <li className="hm-wishlist d-flex">
                                         <li className="hm-minicart">
@@ -355,7 +348,7 @@ function Header(props) {
                                         </li>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

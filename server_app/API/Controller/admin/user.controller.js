@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports.index = async (req, res) => {
-    let page = parseInt(req.query.page) || 1;
+    try {
+        let page = parseInt(req.query.page) || 1;
     const keyWordSearch = req.query.search;
 
     const perPage = parseInt(req.query.limit) || 8;
@@ -35,6 +36,10 @@ module.exports.index = async (req, res) => {
             users: newData.slice(start, end),
             totalPage: totalPage
         })
+    }
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ msg: 'Server Error' })
     }
 }
 
@@ -109,9 +114,7 @@ module.exports.update = async (req, res) => {
     });
     res.json({ msg: "Bạn đã update thành công" })
 }
-
 module.exports.login = async (req, res) => {
-
     const email = req.body.email
     const password = req.body.password
 
@@ -121,10 +124,8 @@ module.exports.login = async (req, res) => {
 
     if (user === null) {
         res.json({ msg: "Không Tìm Thấy User" })
-    }
-    else {
-        const auth = await bcrypt.compare(password, user.password)
-        if (auth) {
+    } else {
+        if (password === user.password) { // So sánh mật khẩu trực tiếp
             var token = jwt.sign(user._id.toJSON(), 'gfdgfd');
             res.json({ msg: "Đăng nhập thành công", user: user, jwt: token })
         } else {

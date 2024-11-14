@@ -30,7 +30,7 @@ const Coupon = require('./API/Router/admin/coupon.router')
 const Sale = require('./API/Router/admin/sale.router')
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/Clothes", {
+mongoose.connect("mongodb://127.0.0.1:27017/Clothes", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -57,6 +57,7 @@ paypal.configure({
   'client_secret': 'ELcS0dYevQhG7LZrBQ-fdOpPXINVQXfKQCzh8f7uFpM2vpO_g0hz5K4rk2tg1dO5p2Hzxvsx-m2fn0QU' // Thông số này cùng vậy
 });
 
+// route 
 app.use('/api/Product', ProductAPI)
 app.use('/api/User', UserAPI)
 app.use('/api/Payment', OrderAPI)

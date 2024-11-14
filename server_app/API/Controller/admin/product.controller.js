@@ -21,8 +21,8 @@ module.exports.index = async (req, res) => {
 
     } else {
         var newData = products.filter(value => {
-            return value.name_product.toUpperCase().indexOf(keyWordSearch.toUpperCase()) !== -1 ||
-                value.price_product.toUpperCase().indexOf(keyWordSearch.toUpperCase()) !== -1 ||
+            return value.name_product?.toUpperCase().indexOf(keyWordSearch?.toString()?.toUpperCase()) !== -1 ||
+                value.price_product?.toUpperCase().indexOf(keyWordSearch?.toString()?.toUpperCase()) !== -1 ||
                 value.id.toUpperCase().indexOf(keyWordSearch.toUpperCase()) !== -1
             // value.id_category.category.toUpperCase().indexOf(keyWordSearch.toUpperCase()) !== -1
         })
@@ -52,6 +52,7 @@ module.exports.create = async (req, res) => {
         // newProduct.number = req.body.number
         newProduct.describe = req.body.description
         newProduct.gender = req.body.gender
+        newProduct.link = req.body.link
 
         if (req.files) {
             var fileImage = req.files.file;
@@ -117,6 +118,7 @@ module.exports.update = async (req, res) => {
                 id_category: req.body.category,
                 // number: req.body.number,
                 describe: req.body.description,
+                link: req.body.link,
                 gender: req.body.gender,
                 image: fileProduct
             }, function (err, res) {
@@ -133,7 +135,9 @@ module.exports.update = async (req, res) => {
                 id_category: req.body.category,
                 // number: req.body.number,
                 describe: req.body.description,
-                gender: req.body.gender
+                gender: req.body.gender,
+                link: req.body.link,
+
             }, function (err, res) {
                 if (err) return res.json({ msg: err });
             });
